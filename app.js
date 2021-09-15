@@ -1,4 +1,5 @@
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 
 const options = {
@@ -8,5 +9,12 @@ const options = {
 
 https.createServer(options, function (req, res) {
   res.writeHead(200);
-  res.end("hello world\n");
+  res.end("hello world 443\n");
 }).listen(443);
+
+http.createServer(function (req, res) {
+  res.writeHead(200);
+  res.end("hello world 80\n");
+}).listen(80);
+
+
